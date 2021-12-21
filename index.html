@@ -53,15 +53,15 @@
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
         if(prediction[0].probability.toFixed(2)>0.80){
-            window.location.href = "./pose1.html";
+            labelContainer.childNodes[0].innerHTML = "スクワットポーズ";
         }else if(prediction[1].probability.toFixed(2)>0.80){
-            window.location.href = "./pose2.html";
+            labelContainer.childNodes[1].innerHTML = "スクワットポーズその2";
         }else if(prediction[2].probability.toFixed(2)>0.80){
-            window.location.href = "./pose3.html";
+            labelContainer.childNodes[2].innerHTML = "マッスルポーズ";
         }else if(prediction[3].probability.toFixed(2)>0.80){
-            window.location.href = "./pose4.html";
+            labelContainer.childNodes[3].innerHTML = "休憩";
         }else if(prediction[4].probability.toFixed(2)>0.80){
-            window.location.href = "./stand pose0.html";
+            labelContainer.childNodes[4].innerHTML = "ムキッ";
         }
 
         /*for (let i = 0; i < maxPredictions; i++) {
