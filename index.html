@@ -52,12 +52,23 @@
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
+        if(prediction[0].probability.toFixed(2)>0.80){
+            window.location.href = "./pose1.html";
+        }else if(prediction[1].probability.toFixed(2)>0.80){
+            window.location.href = "./pose2.html";
+        }else if(prediction[2].probability.toFixed(2)>0.80){
+            window.location.href = "./pose3.html";
+        }else if(prediction[3].probability.toFixed(2)>0.80){
+            window.location.href = "./pose4.html";
+        }else if(prediction[4].probability.toFixed(2)>0.80){
+            window.location.href = "./stand pose0.html";
+        }
 
-        for (let i = 0; i < maxPredictions; i++) {
+        /*for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
+        }*/
 
         // finally draw the poses
         drawPose(pose);
