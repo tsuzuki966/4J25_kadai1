@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8"><div>Teachable Machine Pose Model</div>
+  <meta charset="UTF-8">
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
@@ -61,6 +61,27 @@
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
+
+        var status = "stand";
+        var count = 0;
+        var perfect_count = 0;
+
+        if(prediction[0].probability.toFixed(2) > 0.90){
+            if(status == squat){
+                count++;
+                var audio = new Audio(count % 10 + 'perfect.mp3');
+                audio.play();
+            }
+            status = "stand";
+       }else if(prediction[1].probability.toFixed(2) > 0.90){
+           status = "squat";
+       }else if(prediction[2].probability.toFixed(3) > 0.90){
+           if(status == "squat" || status == "stand" ){
+               var audio = new Audio('good.mp3');
+               audio.play();
+            }
+           status = "bent";
+       }
 
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
