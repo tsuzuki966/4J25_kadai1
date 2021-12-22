@@ -62,6 +62,9 @@
     var sizeY = 12;
     var hitSizeY = 15;
     var num = 0;
+    document.addEventListener("keydown", KeyDownFunc);
+    document.addEventListener("keyup", KeyUpFunc);
+    ctx.font = "16px Arial";
 
     function render() {
       if(y >= canvas.height - 50){
