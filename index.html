@@ -20,19 +20,14 @@
     function SquareLoop() {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
-    var x = 240;
+    var x = 300;
     var y = 0;
-    var bottom = canvas.height - 80;
-    var speed = 5;
+    var bottom = canvas.height - 100;
+    var speed = 3;
     var sizeX = 40;
     var sizeY = 12;
     var hitSizeY = 15;
-    var spaceFlag = false;
     var num = 0;
-    /*キーボード操作の制御*/
-    document.addEventListener("keydown", KeyDownFunc);
-    document.addEventListener("keyup", KeyUpFunc);
-    ctx.font = "16px Arial";
 
     function render() {
       if(y >= canvas.height - 50){
