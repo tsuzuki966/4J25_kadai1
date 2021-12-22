@@ -87,7 +87,7 @@
                     y = 0;
                     cnt++;
                 }else{
-                    y = +Espeed;
+                    y += Espeed;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
@@ -95,8 +95,9 @@
                 ctxN.font = "30px serif";
                 ctxN.fillText("HIT!"+num, 200, 220);
                 }
-
-            setInterval(render, 50);
+            if(cnt > 11){
+                setInterval(render, 50);
+            }
         }
         SquareLoop_easy();
     }
@@ -113,7 +114,7 @@
                 if(y >= 230){
                     y = 0;
                 }else{
-                    y = +Nspeed;
+                    y += Nspeed;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
@@ -139,7 +140,7 @@
                 if(y >= 230){
                     y = 0;
                 }else{
-                    y = +Hspeed;
+                    y += Hspeed;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
