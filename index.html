@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aa-</button>
+    <button type="button" onclick="Square()">Start-aaa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -69,7 +69,7 @@
         if(prediction[0].probability.toFixed(2) > 0.90){
             if(status == "squat"){
                 count++
-                var audio = new Audio(count % 10 + 'perfect.mp3');
+                var audio = new Audio('perfect.mp3');
                 audio.play();
             }
             status = "stand"
