@@ -5,7 +5,7 @@
 </head>
 <body>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-aaa-</button>
+<button type="button" onclick="Square()">Start-aaaa-</button>
 <div><canvas id="canvas" width="200" height="200"></canvas></div>
 <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
@@ -64,14 +64,36 @@
     
         if(prediction[0].probability.toFixed(2) > 0.90){
             status = "pose1";
+            if(status == "pose1"){
+                var audio = new Audio('perfect.mp3');
+                audio.play();
+            }
         }else if(prediction[1].probability.toFixed(2) > 0.90){
             status = "pose2";
+            if(status == "pose2"){
+                var audio = new Audio('perfect.mp3');
+                audio.play();
+            }
         }else if(prediction[2].probability.toFixed(2) > 0.90){
             status = "pose3";
+            if(status == "pose3"){
+                var audio = new Audio('perfect.mp3');
+                audio.play();
+            }
         }else if(prediction[3].probability.toFixed(2) > 0.90){
             status = "stand pose0";
         }else if(prediction[4].probability.toFixed(2) > 0.90){
             status = "pose4";
+            if(status == "pose4"){
+                var audio = new Audio('perfect.mp3');
+                audio.play();
+            }
+        }
+        for(let i=0; i<maxPredictions; i++){
+            if(0.5 < prediction[i].probability.toFixed(2) && prediction[i].probability.toFixed(2) < 0.90){
+                var audio = new Audio('good.mp3');
+                audio.play();
+            }
         }
 
         for (let i = 0; i < maxPredictions; i++) {
