@@ -5,7 +5,7 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-a-</button>
+    <button type="button" onclick="init()">Start-aa-</button>
     <button type="button" onclick="Square_easy()">Easy</button>
     <button type="button" onclick="Square_normal()">Normal</button>
     <button type="button" onclick="Square_hard()">Hard</button>
@@ -65,7 +65,7 @@
     var x = 70;
     var y = 0;
     var bottom = 200;
-    var Espeed = 3;
+    var Espeed = 3.5;
     var Nspeed = 7;
     var Hspeed = 10;
     var sizeX = 60;
@@ -87,7 +87,6 @@
                     y = 0;
                 }else{
                     y += Espeed;
-                    cnt++;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
@@ -95,11 +94,17 @@
                 ctxN.font = "30px serif";
                 ctxN.fillText("HIT!"+num, 200, 220);
             }
-            if(cnt < 8){
-                setInterval(render, 50);
-            }
+            setInterval(render, 50);
         }
         SquareLoop_easy();
+        window.setTimeout(score_easy, 35000);
+
+        function score_easy(){
+            ctxN.fillText("HIT”: "+num,300,220);
+            var audio = new Audio('‚¨”æ‚ê—l‚Å‚µ‚½.mp3');
+            audio.play();
+            
+        }
     }
 
     function Square_normal(){
@@ -124,11 +129,16 @@
                 ctxN.font = "30px serif";
                 ctxN.fillText("HIT!"+num, 200, 220);
                 }
-            if(cnt < 15){
-                setInterval(render, 50);
-            }
+            setInterval(render, 50);
         }
-    SquareLoop_normal();
+        SquareLoop_normal();
+        window.setTimeout(score_normal, 35000);
+
+        function score_normal(){
+            ctxN.fillText("HIT”: "+num,300,220);
+            var audio = new Audio('‚¨”æ‚ê—l‚Å‚µ‚½.mp3');
+            audio.play();
+        }
     }
 
     function Square_hard(){
@@ -153,11 +163,16 @@
                 ctxN.font = "30px serif";
                 ctxN.fillText("HIT!"+num, 200, 220);
                 }
-            if(cnt < 25){
-                setInterval(render, 50);
-            }
+            setInterval(render, 50);
         }
     SquareLoop_hard();
+    window.setTimeout(score_hard, 35000);
+
+    function score_hard(){
+        ctxN.fillText("HIT”: "+num,300,220);
+        var audio = new Audio('‚¨”æ‚ê—l‚Å‚µ‚½.mp3');
+        audio.play();
+        }
     }
 
     async function predict() {
