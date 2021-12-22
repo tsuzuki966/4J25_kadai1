@@ -58,8 +58,6 @@
     var status = "stand";
     var count = 0;
     var perfect_count = 0;
-    var squatFlag = false;
-    var num = 0;
 
     async function predict() {
         // Prediction #1: run input through posenet
@@ -114,9 +112,23 @@
             var sizeX = 40;
             var sizeY = 12;
             var hitSizeY = 15;
-            var spaceFlag = false;
+            var squatFlag = false;
             var num = 0;
-            
+
+            if(prediction[0].probability.toFixed(2) > 0.90){
+            if(status == "squat"){
+                squatFlag = true;
+                num++;
+                perfect_count++;
+            }
+            status = "stand";
+            }else if(prediction[1].probability.toFixed(2) > 0.90){
+            status = "squat";
+            }else if(prediction[2].probability.toFixed(3) > 0.90){
+            if(status == "squat" || status == "stand" ){
+                num = 0;
+            }
+           status = "bent";
             function render() {
                 if(y >= 230){
                     y = 0;
@@ -127,6 +139,7 @@
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
                 ctxN.fillRect(x, y, sizeX, sizeY);
             }
+            
             function hit(){
                 if (squatFlag == true){
                     ctxN.fillText('HIT!'+num, 150, 200);
