@@ -74,10 +74,10 @@
     var fontSize = 100;
 
     function Square_easy(){
+        const music = new Audio('easy-bgm.mp3');
+        music.volume = 0.03;
+        music.play();
         function SquareLoop_easy(){
-            const music = new Audio('easy-bgm.mp3');
-            music.volume = 0.03;
-            music.play();
             var canvas = document.getElementById("canvas");
             var ctxN = canvasN.getContext('2d');
 
