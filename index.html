@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aaaa-</button>
+    <button type="button" onclick="Square()">Start-aaaaa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -56,6 +56,7 @@
     }
 
     var status = "stand";
+    var hit = "HIT!";
     var count = 0;
     var perfect_count = 0;
     var squatFlag = false;
@@ -83,13 +84,13 @@
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
                 ctxN.fillRect(x, y, sizeX, sizeY);
-                ctxN.fillText('HIT!'+num, 150, 200 + (fontSize/2));
-                ctxN.fillText('HIT!'+squatFlag, 250, 200 + (fontSize/2));
+                ctxN.fillText(hit+num, 150, 200 + (fontSize/2));
+                ctxN.fillText(hit+squatFlag, 250, 200 + (fontSize/2));
                 }
 
             function hit(){
                 if (squatFlag == true){
-                    ctxN.fillText('HIT!'+num, 150, 200);
+                    ctxN.fillText(hit+num, 150, 200);
                 }
             }
             setInterval(render, 50);
@@ -114,9 +115,6 @@
                 perfect_count++;
             }
             status = "stand";
-        }else if( y > bottom + hitSizeY){
-            num = 0;
-            squatFlag = false;
         }else if(prediction[1].probability.toFixed(2) > 0.90){
             status = "squat";
         }else if(prediction[2].probability.toFixed(3) > 0.90){
