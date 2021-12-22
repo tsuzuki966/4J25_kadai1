@@ -54,7 +54,7 @@
 
     function SquareLoop(){
         var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext('2d');
+        var ctxN = canvas.getContext('2d');
         var x = 400;
         var y = 0;
         var bottom = 200;
@@ -71,10 +71,10 @@
             }else{
                 y += speed;
             }
-            ctx.clearRect(200, 0, 680, 500);
-            ctx.strokeRect(x, bottom, sizeX, sizeY);
-            ctx.beginPath();
-            ctx.fillRect(x, y, sizeX, sizeY);
+            ctxN.clearRect(200, 0, 680, 500);
+            ctxN.strokeRect(x, bottom, sizeX, sizeY);
+            ctxN.beginPath();
+            ctxN.fillRect(x, y, sizeX, sizeY);
         }
         setInterval(render, 50);
     }
