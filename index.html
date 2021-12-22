@@ -56,7 +56,6 @@
     }
 
     var status = "stand";
-    var hit = "HIT!";
     var count = 0;
     var perfect_count = 0;
     var squatFlag = false;
@@ -89,7 +88,7 @@
             function hit(){
                 if (squatFlag == true){
                     ctxN.font = "30px serif";
-                    ctxN.fillText(hit+num, 150, 250);
+                    ctxN.fillText("HIT!"+num, 150, 250);
                 }
             }
             setInterval(render, 50);
