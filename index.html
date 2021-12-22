@@ -5,7 +5,7 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-aaaaa-</button>
+    <button type="button" onclick="init()">Start-a-</button>
     <button type="button" onclick="Square_easy()">Easy</button>
     <button type="button" onclick="Square_normal()">Normal</button>
     <button type="button" onclick="Square_hard()">Hard</button>
@@ -97,13 +97,12 @@
             setInterval(render, 50);
         }
         SquareLoop_easy();
-        setTimeout(sc, 35000);
-
         var sc = function score_easy(){
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
         }
+        setTimeout(sc, 35000);
     }
 
     function Square_normal(){
@@ -131,13 +130,12 @@
             setInterval(render, 50);
         }
         SquareLoop_normal();
-        setTimeout(sc2, 35000);
-
         var sc2 = function score_normal(){
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
         }
+        setTimeout(sc2, 35000);
     }
 
     function Square_hard(){
@@ -165,13 +163,12 @@
             setInterval(render, 50);
         }
         SquareLoop_hard();
-        setTimeout(sc3, 35000);
-
         var sc3 = function score_hard(){
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
         }
+        setTimeout(sc3, 35000);
     }
 
     async function predict() {
