@@ -18,6 +18,7 @@
     let model, webcam, ctx, labelContainer, maxPredictions;
 
     async function init() {
+        await SquareLoop();
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -43,7 +44,6 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
-        SquareLoop();
     }
 
     async function loop(timestamp) {
@@ -52,7 +52,7 @@
         window.requestAnimationFrame(loop);
     }
 
-    function SquareLoop(){
+    async function SquareLoop(){
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext('2d');
         var x = 400;
