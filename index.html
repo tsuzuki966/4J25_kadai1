@@ -5,7 +5,6 @@
 </head>
 <body>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-aa-</button>
 <div><canvas id="canvas" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -44,6 +43,60 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
+        function Square() {
+            function SquareLoop(){
+                var canvas = document.getElementById("canvas");
+                var ctx = canvas.getContext('2d');
+                var x = 400;
+                var y = 0;
+                var bottom = 200;
+                var speed = 8;
+                var sizeX = 40;
+                var sizeY = 12;
+                var hitSizeY = 15;
+                var spaceFlag = false;
+                var num = 0;
+                /*キーボード操作の制御*/
+                document.addEventListener("keydown", KeyDownFunc);
+                document.addEventListener("keyup", KeyUpFunc);
+                ctx.font = "16px Arial";
+
+                    function render() {
+                    if(y >= 250){
+                        y = 0;
+                    }else{
+                        y += speed;
+                    }
+                    ctx.clearRect(0, 0, 680, 500);
+                    ctx.strokeRect(x, bottom, sizeX, sizeY);
+                    ctx.beginPath();
+                    ctx.fillRect(x, y, sizeX, sizeY);
+                    }
+                    /*SpaceKeyが押された時の処理*/
+                    function KeyDownFunc(e) {
+                    if (e.keyCode == 32 && y >= bottom - hitSizeY && y <= bottom + hitSizeY){
+                        spaceFlag = true;
+                        num++;
+                    }
+                    }
+
+                    function KeyUpFunc(e) {
+                    if (e.keyCode == 32 && y > bottom + hitSizeY){
+                        spaceFlag = false;
+                    }
+                    }
+
+                    function hit(){
+                    if (spaceFlag == true){
+                        ctx.clearRect(0, 264, 200, 200);
+                        ctx.fillText('HIT!'+num, 300, 280);
+                    }
+                    }
+                    setInterval(render, 50);
+                    setInterval(hit, 50);
+                }
+        SquareLoop();
+        }
     }
 
     async function loop(timestamp) {
@@ -52,60 +105,6 @@
         window.requestAnimationFrame(loop);
     }
 
-    function Square() {
-        function SquareLoop(){
-            var canvas = document.getElementById("canvas");
-            var ctx = canvas.getContext('2d');
-            var x = 400;
-            var y = 0;
-            var bottom = 200;
-            var speed = 8;
-            var sizeX = 40;
-            var sizeY = 12;
-            var hitSizeY = 15;
-            var spaceFlag = false;
-            var num = 0;
-            /*キーボード操作の制御*/
-            document.addEventListener("keydown", KeyDownFunc);
-            document.addEventListener("keyup", KeyUpFunc);
-            ctx.font = "16px Arial";
-
-                function render() {
-                if(y >= 250){
-                    y = 0;
-                }else{
-                    y += speed;
-                }
-                ctx.clearRect(0, 0, 680, 500);
-                ctx.strokeRect(x, bottom, sizeX, sizeY);
-                ctx.beginPath();
-                ctx.fillRect(x, y, sizeX, sizeY);
-                }
-                /*SpaceKeyが押された時の処理*/
-                function KeyDownFunc(e) {
-                if (e.keyCode == 32 && y >= bottom - hitSizeY && y <= bottom + hitSizeY){
-                    spaceFlag = true;
-                    num++;
-                }
-                }
-
-                function KeyUpFunc(e) {
-                if (e.keyCode == 32 && y > bottom + hitSizeY){
-                    spaceFlag = false;
-                }
-                }
-
-                function hit(){
-                if (spaceFlag == true){
-                    ctx.clearRect(0, 264, 200, 200);
-                    ctx.fillText('HIT!'+num, 300, 280);
-                }
-                }
-                setInterval(render, 50);
-                setInterval(hit, 50);
-            }
-        SquareLoop();
-    }
     async function predict() {
         // Prediction #1: run input through posenet
         // estimatePose can take in an image, video or canvas html element
