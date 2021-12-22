@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aa-</button>
+    <button type="button" onclick="Square()">Start-aaa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -85,6 +85,7 @@
                 ctxN.fillText('HIT!'+num, 150, 200);
                 ctxN.fillText('HIT!'+squatFlag, 250, 200);
                 }
+
             function hit(){
                 if (squatFlag == true){
                     ctxN.fillText('HIT!'+num, 150, 200);
@@ -112,9 +113,12 @@
                 perfect_count++;
             }
             status = "stand";
-       }else if(prediction[1].probability.toFixed(2) > 0.90){
+        }else if(prediction[0].probability.toFixed(2) > 0.90 && y > bottom + hitSizeY){
+            num = 0;
+            squatFlag = false;
+        }else if(prediction[1].probability.toFixed(2) > 0.90){
             status = "squat";
-       }else if(prediction[2].probability.toFixed(3) > 0.90){
+        }else if(prediction[2].probability.toFixed(3) > 0.90){
             if(status == "squat" || status == "stand" ){
                var audio = new Audio('good.mp3');
                audio.play();
