@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aaaa-</button>
+    <button type="button" onclick="Square()">Start-a-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -84,14 +84,12 @@
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
                 ctxN.fillRect(x, y, sizeX, sizeY);
-                ctxN.font = "24px serif";
-                ctxN.fillText("HIT! "+num, 150, 200);
-                ctxN.fillText("HIT! "+squatFlag, 250, 200);
                 }
 
             function hit(){
                 if (squatFlag == true){
-                    ctxN.fillText(hit+num, 150, 200);
+                    ctxN.font = "30px serif";
+                    ctxN.fillText(hit+num, 150, 250);
                 }
             }
             setInterval(render, 50);
