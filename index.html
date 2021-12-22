@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aaa-</button>
+    <button type="button" onclick="Square()">Start-aaaa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -74,9 +74,9 @@
             }
             status = "stand";
        }else if(prediction[1].probability.toFixed(2) > 0.90){
-           status = "squat";
+            status = "squat";
        }else if(prediction[2].probability.toFixed(3) > 0.90){
-           if(status == "squat" || status == "stand" ){
+            if(status == "squat" || status == "stand" ){
                var audio = new Audio('good.mp3');
                audio.play();
             }
