@@ -5,7 +5,7 @@
 </head>
 <body>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-aaaaa-</button>
+<button type="button" onclick="Square()">Start-aaaaaa-</button>
 <div><canvas id="canvas" width="200" height="200"></canvas></div>
 <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
@@ -73,13 +73,15 @@
         }else if(prediction[1].probability.toFixed(2) > 0.90){
             status = "pose2";
             if(status == "pose2"){
-                var audio = new Audio('perfect.mp3');
+                count++;
+                var audio = new Audio(count % 10 +'perfect.mp3');
                 audio.play();
             }
         }else if(prediction[2].probability.toFixed(2) > 0.90){
             status = "pose3";
             if(status == "pose3"){
-                var audio = new Audio('perfect.mp3');
+                count++;
+                var audio = new Audio(count % 10 +'perfect.mp3');
                 audio.play();
             }
         }else if(prediction[3].probability.toFixed(2) > 0.90){
@@ -87,7 +89,8 @@
         }else if(prediction[4].probability.toFixed(2) > 0.90){
             status = "pose4";
             if(status == "pose4"){
-                var audio = new Audio('perfect.mp3');
+                count++;
+                var audio = new Audio(count % 10 +'perfect.mp3');
                 audio.play();
             }
         }
