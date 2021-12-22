@@ -50,13 +50,13 @@
         await predict();
         window.requestAnimationFrame(loop);
     }
-    <canvas id="canvas" width="480" height="300"></canvas>
+
     function SquareLoop() {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
     var x = 400;
     var y = 20;
-    var bottom = canvas.height - 80;
+    var bottom = 100;
     var speed = 3;
     var sizeX = 40;
     var sizeY = 12;
@@ -69,7 +69,7 @@
       }else{
         y += speed;
       }
-      ctx.clearRect(400, 0, canvas.width, canvas.height - 38);
+      ctx.clearRect(400, 0, 100, 100);
       ctx.strokeRect(x, bottom, sizeX, sizeY);
       ctx.beginPath();
       ctx.fillRect(x, y, sizeX, sizeY);
@@ -90,7 +90,7 @@
 
     function hit(){
       if (spaceFlag == true){
-        ctx.clearRect(0, 264, canvas.width, canvas.height);
+        ctx.clearRect(0, 264, 100, 100);
         ctx.fillText('HIT!'+num, 300, 280);
       }
     }
