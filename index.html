@@ -4,7 +4,7 @@
   <meta charset="UTF-8"><div>Teachable Machine Pose Model</div>
 </head>
 <body>
-<button type="button" onclick="init()">Start-aa-</button>
+<button type="button" onclick="init();Square()">Start-a-</button>
 <div><canvas id="canvas" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -43,7 +43,17 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
-        var canvas = document.getElementById("canvas");
+    }
+
+    async function loop(timestamp) {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    function Square() {
+        function SquareLoop(){
+            var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext('2d');
             var x = 400;
             var y = 0;
@@ -67,14 +77,9 @@
                 ctx.fillRect(x, y, sizeX, sizeY);
             }
             setInterval(render, 50);
+        }
+        SquareLoop();
     }
-
-    async function loop(timestamp) {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
-
     async function predict() {
         // Prediction #1: run input through posenet
         // estimatePose can take in an image, video or canvas html element
