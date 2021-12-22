@@ -5,7 +5,7 @@
 </head>
 <body>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-aaaaaaa-</button>
+<button type="button" onclick="Square()">Start-a-</button>
 <div><canvas id="canvas" width="200" height="200"></canvas></div>
 <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
@@ -99,7 +99,7 @@
         function SquareLoop(){
             var canvas = document.getElementById("canvas");
             var ctxN = canvasN.getContext('2d');
-            var x = 400;
+            var x = 100;
             var y = 0;
             var bottom = 200;
             var speed = 8;
@@ -108,8 +108,6 @@
             var hitSizeY = 15;
             var spaceFlag = false;
             var num = 0;
-            
-            ctxN.clearRext(200,200,200,200);
             
             function render() {
                 if(y >= 250){
