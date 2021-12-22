@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="ja">
-<head>
-	<meta charset="Shift-JIS">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div>Teachable Machine Pose Model-b-</div>
+<div>Teachable Machine Pose Model</div>
 <button type="button" onclick="init()">Start</button>
 <div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
@@ -59,23 +52,26 @@
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
-        if(prediction[0].probability.toFixed(2)>0.80){
-            labelContainer.childNodes[0].innerHTML = "スクワットポーズ";
-        }else if(prediction[1].probability.toFixed(2)>0.80){
-            labelContainer.childNodes[1].innerHTML = "スクワットポーズその2";
-        }else if(prediction[2].probability.toFixed(2)>0.80){
-            labelContainer.childNodes[2].innerHTML = "マッスルポーズ";
-        }else if(prediction[3].probability.toFixed(2)>0.80){
-            labelContainer.childNodes[3].innerHTML = "休憩";
-        }else if(prediction[4].probability.toFixed(2)>0.80){
-            labelContainer.childNodes[4].innerHTML = "ムキッ";
+
+    var status = "stand";
+    
+        if(prediction[0].probability.toFixed(2) > 0.90){
+            status = "pose1";
+        }else if(prediction[1].probability.toFixed(2) > 0.90){
+            status = "pose2";
+        }else if(prediction[2].probability.toFixed(2) > 0.90){
+            status = "pose3";
+        }else if(prediction[3].probability.toFixed(2) > 0.90){
+            status = "stand pose0";
+        }else if(prediction[4].probability.toFixed(2) > 0.90){
+            status = "pose4";
         }
 
-        /*for (let i = 0; i < maxPredictions; i++) {
+        for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-        }*/
+        }
 
         // finally draw the poses
         drawPose(pose);
@@ -93,5 +89,3 @@
         }
     }
 </script>
-</body>
-</html>
