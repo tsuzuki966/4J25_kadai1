@@ -5,7 +5,7 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-aaa-</button>
+    <button type="button" onclick="init()">Start-aaaa-</button>
     <button type="button" onclick="Square_easy()">Easy</button>
     <button type="button" onclick="Square_normal()">Normal</button>
     <button type="button" onclick="Square_hard()">Hard</button>
@@ -97,9 +97,9 @@
             setInterval(render, 50);
         }
         SquareLoop_easy();
-        setTimeout(score_easy, 35000);
+        setTimeout(sc, 35000);
 
-        function score_easy(){
+        var sc = function score_easy(){
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
@@ -131,9 +131,9 @@
             setInterval(render, 50);
         }
         SquareLoop_normal();
-        setTimeout(score_normal, 35000);
+        setTimeout(sc2, 35000);
 
-        function score_normal(){
+        var sc2 = function score_normal(){
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
@@ -165,9 +165,9 @@
             setInterval(render, 50);
         }
     SquareLoop_hard();
-    setTimeout(score_hard, 35000);
+    setTimeout(sc3, 35000);
 
-    function score_hard(){
+    var sc3 = function score_hard(){
         ctxN.fillText("HITêî: "+num,300,220);
         var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
         audio.play();
