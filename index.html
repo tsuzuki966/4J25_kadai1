@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8"><div>Teachable Machine Pose Model</div>
-</head>
-<body>
+<div>Teachable Machine Pose Model</div>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-a-</button>
-<div><canvas id="canvas" width="200" height="200"></canvas></div>
-<div><canvas id="canvasN" width="480" height="300"></canvas></div>
+<div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
@@ -60,26 +53,6 @@
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
 
-    var status = "stand";
-    var count = 0;
-    
-        if(prediction[0].probability.toFixed(2) ==1){
-                count++;
-                var audio = new Audio(count % 10 +'perfect.mp3');
-                audio.play();
-        }else if(prediction[1].probability.toFixed(2) ==1){
-                var audio = new Audio('perfect.mp3');
-                audio.play();
-        }else if(prediction[2].probability.toFixed(2) ==1){
-                var audio = new Audio('perfect.mp3');
-                audio.play();
-        }else if(prediction[3].probability.toFixed(2) ==1){
-            status = "stand pose0";
-        }else if(prediction[4].probability.toFixed(2) ==1){
-                var audio = new Audio('perfect.mp3');
-              audio.play();
-        }
-
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -101,34 +74,4 @@
             }
         }
     }
-    function Square(){
-        function SquareLoop(){
-            var canvas = document.getElementById("canvas");
-            var ctxN = canvasN.getContext('2d');
-            var x = 70;
-            var y = 0;
-            var bottom = 200;
-            var speed = 8;
-            var sizeX = 40;
-            var sizeY = 12;
-            var hitSizeY = 15;
-            var spaceFlag = false;
-            var num = 0;
-            
-            function render() {
-                if(y >= 230){
-                    y = 0;
-                }else{
-                    y += speed;
-                }
-                ctxN.clearRect(0, 0, 480, 300);
-                ctxN.strokeRect(x, bottom, sizeX, sizeY);
-                ctxN.fillRect(x, y, sizeX, sizeY);
-            }
-            setInterval(render, 50);
-        }
-    SquareLoop();
-    }
 </script>
-</body>
-</html>
