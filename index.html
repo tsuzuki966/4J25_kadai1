@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-a-</button>
+    <button type="button" onclick="Square()">Start-aa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -66,6 +66,22 @@
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
 
+        if(prediction[0].probability.toFixed(2) > 0.90){
+            if(status == "squat"){
+                count++
+                var audio = new Audio(count % 10 + 'perfect.mp3');
+                audio.play();
+            }
+            status = "stand"
+       }else if(prediction[1].probability.toFixed(2) > 0.90){
+            status = "squat"
+       }else if(prediction[2].probability.toFixed(3) > 0.90){
+            if(status == "squat" || status == "stand" ){
+               var audio = new Audio('good.mp3');
+               audio.play();
+            }
+           status = "bent"
+       }
 
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
