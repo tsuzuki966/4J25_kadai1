@@ -75,7 +75,7 @@
         }else{
             y += speed;
         }
-        ctx.clearRect(0, 0, 480, 300);
+        ctx.clearRect(0, 0, 200, 200);
         ctx.strokeRect(x, bottom, sizeX, sizeY);
         ctx.beginPath();
         ctx.fillRect(x, y, sizeX, sizeY);
@@ -96,7 +96,7 @@
 
         function hit(){
         if (spaceFlag == true){
-            ctx.clearRect(0, 264, 480, 300);
+            ctx.clearRect(0, 264, 200, 200);
             ctx.fillText('HIT!'+num, 300, 280);
         }
         }
