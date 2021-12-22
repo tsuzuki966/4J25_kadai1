@@ -6,7 +6,7 @@
 <body>
     <div>Teachable Machine Pose Model</div>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square()">Start-aa-</button>
+    <button type="button" onclick="Square()">Start-aaa-</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -55,16 +55,16 @@
         window.requestAnimationFrame(loop);
     }
 
+    var status = "stand";
+    var count = 0;
+    var perfect_count = 0;
+
     async function predict() {
         // Prediction #1: run input through posenet
         // estimatePose can take in an image, video or canvas html element
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
-
-        var status = "stand";
-        var count = 0;
-        var perfect_count = 0;
 
         if(prediction[0].probability.toFixed(2) > 0.90){
             if(status == squat){
