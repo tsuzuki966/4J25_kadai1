@@ -89,12 +89,7 @@
                 audio.play();
             }
         }
-        for(let i=0; i<maxPredictions; i++){
-            if(0.5 < prediction[i].probability.toFixed(2) && prediction[i].probability.toFixed(2) < 0.90){
-                var audio = new Audio('good.mp3');
-                audio.play();
-            }
-        }
+
 
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
