@@ -5,7 +5,7 @@
 </head>
 <body>
 <button type="button" onclick="init()">Start</button>
-<button type="button" onclick="Square()">Start-aa-</button>
+<button type="button" onclick="Square()">Start-aaa-</button>
 <div><canvas id="canvas" width="200" height="200"></canvas></div>
 <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div id="label-container"></div>
@@ -110,12 +110,12 @@
             var num = 0;
             
             function render() {
-                if(y >= 250){
+                if(y >= 230){
                     y = 0;
                 }else{
                     y += speed;
                 }
-                ctxN.clearRect(200, 0, 480, 300);
+                ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
                 ctxN.fillRect(x, y, sizeX, sizeY);
             }
