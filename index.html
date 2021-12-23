@@ -5,10 +5,10 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-aa-</button>
-    <button type="button" onclick="Square_easy()">Easy</button>
-    <button type="button" onclick="Square_normal()">Normal</button>
-    <button type="button" onclick="Square_hard()">Hard</button>
+    <button type="button" onclick="init()">Start-aaa-</button>
+    <button type="button" onclick="Square_easy();syori()">Easy</button>
+    <button type="button" onclick="Square_normal();syori()">Normal</button>
+    <button type="button" onclick="Square_hard();syori()">Hard</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -97,14 +97,8 @@
             setInterval(render, 50);
         }
         SquareLoop_easy();
-        function score_easy(){
-            ctxN.font = "30px serif";
-            ctxN.fillText("HITêî: "+num,300,220);
-            var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
-            audio.play();
-        }
-        setTimeout("score_easy", 35000);
     }
+
 
     function Square_normal(){
         function SquareLoop_normal(){
@@ -131,12 +125,6 @@
             setInterval(render, 50);
         }
         SquareLoop_normal();
-        var sc2 = function score_normal(){
-            ctxN.fillText("HITêî: "+num,300,220);
-            var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
-            audio.play();
-        }
-        setTimeout(sc2, 35000);
     }
 
     function Square_hard(){
@@ -164,12 +152,15 @@
             setInterval(render, 50);
         }
         SquareLoop_hard();
-        var sc3 = function score_hard(){
+    }
+    function score(){
+            ctxN.font = "30px serif";
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
         }
-        setTimeout(sc3, 35000);
+    function syori(){
+            setTimeout("score", 35000);
     }
 
     async function predict() {
