@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
 </head>
 <body>
-    <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-a-</button>
+    <div>Teachable Machine Pose Model-4J25-</div>
+    Startを押してカメラが表示されたら好きな難易度を選択して開始↓<br>
+    (同じボタンを複数回押すと同じ曲で高い難易度のものが遊べます。)<br>
+    <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="Square_easy();syori_E()">Easy</button>
     <button type="button" onclick="Square_normal();syori_N()">Normal</button>
     <button type="button" onclick="Square_hard();syori_H()">Hard</button>
@@ -60,6 +62,7 @@
     var status = "stand";
     var count = 0;
     var perfect_count = 0;
+    var good_count = 0;
     var squatFlag = false;
     var num = 0;
     var x = 70;
@@ -154,19 +157,19 @@
         SquareLoop_hard();
     }
     function score_E(){
-            alert('PERFECT数: '+perfect_count+'/8\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/8\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_E(){
             setTimeout("score_E()", 28000);
     }
     function score_N(){
-            alert('PERFECT数: '+perfect_count+'/18\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/18\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_N(){
             setTimeout("score_N()", 34000);
     }
     function score_H(){
-            alert('PERFECT数: '+perfect_count+'/22\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/22\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_H(){
             setTimeout("score_E()", 29000);
@@ -197,6 +200,7 @@
                audio.play();
                num = 0;
                squatFlag = false;
+               good_count++;
             }
            status = "bent";
        }
