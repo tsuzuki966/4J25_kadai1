@@ -5,7 +5,7 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-aaaa-</button>
+    <button type="button" onclick="init()">Start-a-</button>
     <button type="button" onclick="Square_easy();syori_E()">Easy</button>
     <button type="button" onclick="Square_normal();syori_N()">Normal</button>
     <button type="button" onclick="Square_hard();syori_H()">Hard</button>
@@ -154,19 +154,19 @@
         SquareLoop_hard();
     }
     function score_E(){
-            alert('HIT数: '+perfect_count+'\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/8\nお疲れ様でした。');
         }
     function syori_E(){
-            setTimeout("score_E()", 29000);
+            setTimeout("score_E()", 28000);
     }
     function score_N(){
-            alert('HIT数: '+perfect_count+'\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/18\nお疲れ様でした。');
         }
     function syori_N(){
             setTimeout("score_N()", 34000);
     }
     function score_H(){
-            alert('HIT数: '+perfect_count+'\nお疲れ様でした。');
+            alert('PERFECT数: '+perfect_count+'/22\nお疲れ様でした。');
         }
     function syori_H(){
             setTimeout("score_E()", 29000);
@@ -218,5 +218,11 @@
     }
 
 </script>
+    使用したBGM(easy)：<br>
+    <a href= "https://www.youtube.com/watch?v=Muv7CXBlsLo" >https://www.youtube.com/watch?v=Muv7CXBlsLo</a>
+    使用したBGM(normal)：<br>
+    <a href= "https://www.youtube.com/watch?v=elZZpZCes48" >https://www.youtube.com/watch?v=elZZpZCes48</a>
+    使用したBGM(hard)：<br>
+    <a href= "https://www.youtube.com/watch?v=_dmFr11zjho&t=3s" >https://www.youtube.com/watch?v=_dmFr11zjho&t=3s</a>
 </body>
 </html>
