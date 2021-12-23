@@ -7,7 +7,7 @@
     <div>
         <font size='5'><b>Teachable Machine Pose Model-4J25-</b></font>
     </div>
-    Startを押してカメラが表示されたら好きな難易度を選択して開始↓<br>
+    ↓Startを押してカメラが表示されたら好きな難易度を選択して開始(ボタンを押してから5秒後に開始されます)↓<br>
     (同じボタンを複数回押すと同じ曲で高い難易度のものが遊べます。)<br>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="Square_easy();syori_E()">Easy</button>
@@ -101,7 +101,7 @@
             }
             setInterval(render, 50);
         }
-        SquareLoop_easy();
+        setTimeout("SquareLoop_easy()",5000);
     }
 
 
@@ -129,7 +129,7 @@
                 }
             setInterval(render, 50);
         }
-        SquareLoop_normal();
+        setTimeout("SquareLoop_normal()",5000);
     }
 
     function Square_hard(){
@@ -156,7 +156,7 @@
             }
             setInterval(render, 50);
         }
-        SquareLoop_hard();
+        setTimeout("SquareLoop_hard()",5000);
     }
     function score_E(){
             alert('PERFECT数: '+perfect_count+'/8\nGOOD数: '+good_count+'\nお疲れ様でした。');
