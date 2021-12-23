@@ -10,9 +10,9 @@
     ↓Startを押してカメラが表示されたら好きな難易度を選択して開始(ボタンを押してから5秒後に開始されます)↓<br>
     (同じボタンを複数回押すと同じ曲で高い難易度のものが遊べます。)<br>
     <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="Square_easy();syori_E()">Easy</button>
-    <button type="button" onclick="Square_normal();syori_N()">Normal</button>
-    <button type="button" onclick="Square_hard();syori_H()">Hard</button>
+    <button type="button" onclick="start_easy();syori_E()">Easy</button>
+    <button type="button" onclick="start_normal();syori_N()">Normal</button>
+    <button type="button" onclick="start_hard();syori_H()">Hard</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -78,6 +78,16 @@
     var hitSizeY = 20;
     var fontSize = 100;
 
+    function start_easy(){
+        setTimeout("Square_easy()", 5000);
+    }
+    function start_easy(){
+        setTimeout("Square_normal()", 5000);
+    }
+    function start_easy(){
+        setTimeout("Square_hard()", 5000);
+    }
+
     function Square_easy(){
         function SquareLoop_easy(){
             var cnt = 0;
@@ -101,7 +111,7 @@
             }
             setInterval(render, 50);
         }
-        setTimeout("SquareLoop_easy()",5000);
+        SquareLoop_easy();
     }
 
 
@@ -129,7 +139,7 @@
                 }
             setInterval(render, 50);
         }
-        setTimeout("SquareLoop_normal()",5000);
+        SquareLoop_normal();
     }
 
     function Square_hard(){
@@ -156,25 +166,25 @@
             }
             setInterval(render, 50);
         }
-        setTimeout("SquareLoop_hard()",5000);
+        SquareLoop_hard();
     }
     function score_E(){
-            alert('PERFECT数: '+perfect_count+'/8\nGOOD数: '+good_count+'\nお疲れ様でした。');
+        alert('PERFECT数: '+perfect_count+'/8\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_E(){
-            setTimeout("score_E()", 28000);
+        setTimeout("score_E()", 28000);
     }
     function score_N(){
-            alert('PERFECT数: '+perfect_count+'/18\nGOOD数: '+good_count+'\nお疲れ様でした。');
+        alert('PERFECT数: '+perfect_count+'/18\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_N(){
-            setTimeout("score_N()", 34000);
+        setTimeout("score_N()", 34000);
     }
     function score_H(){
-            alert('PERFECT数: '+perfect_count+'/22\nGOOD数: '+good_count+'\nお疲れ様でした。');
+        alert('PERFECT数: '+perfect_count+'/22\nGOOD数: '+good_count+'\nお疲れ様でした。');
         }
     function syori_H(){
-            setTimeout("score_E()", 29000);
+        setTimeout("score_E()", 29000);
     }
 
     async function predict() {
