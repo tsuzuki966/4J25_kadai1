@@ -5,10 +5,10 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-a-</button>
-    <button type="button" onclick="Square_easy();syori()">Easy</button>
-    <button type="button" onclick="Square_normal();syori()">Normal</button>
-    <button type="button" onclick="Square_hard();syori()">Hard</button>
+    <button type="button" onclick="init()">Start-aa-</button>
+    <button type="button" onclick="Square_easy();syori_E()">Easy</button>
+    <button type="button" onclick="Square_normal();syori_N()">Normal</button>
+    <button type="button" onclick="Square_hard();syori_H()">Hard</button>
     <div><canvas id="canvas" width="200" height="200"></canvas></div>
     <div><canvas id="canvasN" width="480" height="300"></canvas></div>
 <div><canvas id="canvas"></canvas></div>
@@ -66,8 +66,8 @@
     var y = 0;
     var bottom = 200;
     var Espeed = 3.5;
-    var Nspeed = 7;
-    var Hspeed = 10;
+    var Nspeed = 6.5;
+    var Hspeed = 9.5;
     var sizeX = 60;
     var sizeY = 18;
     var hitSizeY = 20;
@@ -153,13 +153,23 @@
         }
         SquareLoop_hard();
     }
-    function score(){
-            alert('HITêî: '+num);
-            var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
-            audio.play();
+    function score_E(){
+            alert('HIT??: '+num+'\n?¬®?a?e?l??Œº???B');
         }
-    function syori(){
-            setTimeout("score()", 32000);
+    function syori_E(){
+            setTimeout("score_E()", 28000);
+    }
+    function score_N(){
+            alert('HIT??: '+num+'\n?¬®?a?e?l??Œº???B');
+        }
+    function syori_N(){
+            setTimeout("score_N()", 33000);
+    }
+    function score_H(){
+            alert('HIT??: '+num+'\n?¬®?a?e?l??Œº???B');
+        }
+    function syori_H(){
+            setTimeout("score_E()", 29000);
     }
 
     async function predict() {
