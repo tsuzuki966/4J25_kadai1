@@ -62,7 +62,6 @@
     }
 
     var status = "stand";
-    var count = 0;
     var perfect_count = 0;
     var good_count = 0;
     var squatFlag = false;
@@ -90,7 +89,6 @@
 
     function Square_easy(){
         function SquareLoop_easy(){
-            var cnt = 0;
             const music = new Audio('easy-bgm.mp3');
             music.volume = 0.03;
             music.play();
@@ -117,7 +115,6 @@
 
     function Square_normal(){
         function SquareLoop_normal(){
-            var cnt = 0;
             const music = new Audio('normal-bgm.mp3');
             music.volume = 0.03;
             music.play();
@@ -129,7 +126,6 @@
                     y = 0;
                 }else{
                     y += Nspeed;
-                    cnt++;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
@@ -144,7 +140,6 @@
 
     function Square_hard(){
         function SquareLoop_hard(){
-            var cnt = 0;
             const music = new Audio('hard-bgm.mp3');
             music.volume = 0.03;
             music.play();
@@ -156,7 +151,6 @@
                     y = 0;
                 }else{
                     y += Hspeed;
-                    cnt++;
                 }
                 ctxN.clearRect(0, 0, 480, 300);
                 ctxN.strokeRect(x, bottom, sizeX, sizeY);
@@ -196,7 +190,6 @@
 
         if(prediction[0].probability.toFixed(2) > 0.90 && y >= bottom - hitSizeY && y <= bottom + hitSizeY){
             if(status == "squat"){
-                count++;
                 var audio = new Audio('perfect.mp3');
                 audio.play();
                 squatFlag = true;
