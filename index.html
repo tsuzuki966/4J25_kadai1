@@ -5,7 +5,7 @@
 </head>
 <body>
     <div>Teachable Machine Pose Model</div>
-    <button type="button" onclick="init()">Start-a-</button>
+    <button type="button" onclick="init()">Start-aa-</button>
     <button type="button" onclick="Square_easy()">Easy</button>
     <button type="button" onclick="Square_normal()">Normal</button>
     <button type="button" onclick="Square_hard()">Hard</button>
@@ -97,12 +97,13 @@
             setInterval(render, 50);
         }
         SquareLoop_easy();
-        var sc = function score_easy(){
+        function score_easy(){
+            ctxN.font = "30px serif";
             ctxN.fillText("HITêî: "+num,300,220);
             var audio = new Audio('Ç®îÊÇÍólÇ≈ÇµÇΩ.mp3');
             audio.play();
         }
-        setTimeout(sc, 35000);
+        setTimeout("score_easy", 35000);
     }
 
     function Square_normal(){
